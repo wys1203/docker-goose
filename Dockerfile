@@ -7,7 +7,7 @@ RUN set -ex \
         && go get -ldflags "-extldflags -static" bitbucket.org/liamstask/goose/cmd/goose \
         && apk del build-dependencies
 
-FROM scratch
+FROM alpine
 
 COPY --from=build-env /go/bin/goose /usr/local/bin/goose
 
